@@ -56,3 +56,18 @@ services:
       - ../jobs:/home/jovyan/jobs
     depends_on:
       - spark-master
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: robos_user
+      POSTGRES_PASSWORD: robos_pass
+      POSTGRES_DB: robos_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

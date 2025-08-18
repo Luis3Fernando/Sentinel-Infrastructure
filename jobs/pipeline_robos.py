@@ -17,7 +17,7 @@ spark = SparkSession.builder \
 # -------------------------
 # Lectura de datos
 # -------------------------
-df = spark.read.csv("./data/robos.csv", header=True, inferSchema=True)
+df = spark.read.csv("/data/robos.csv", header=True, inferSchema=True)
 
 # -------------------------
 # Consulta de riesgo por distrito

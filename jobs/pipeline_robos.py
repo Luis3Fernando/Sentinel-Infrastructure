@@ -9,7 +9,11 @@ try:
 except:
     pass
 
-spark = SparkSession.builder.appName("RobosPeru").getOrCreate()
+spark = SparkSession.builder \
+    .appName("RobosPeru") \
+    .config("spark.jars", "/home/jovyan/libs/postgresql-42.6.0.jar") \
+    .getOrCreate()
+
 
 # -------------------------
 # Lectura de datos
@@ -62,12 +66,13 @@ historial = df.groupBy("ANIO", "MES", "UBIGEO_HECHO") \
 # -------------------------
 # Guardar resultados en PostgreSQL
 # -------------------------
-jdbc_url = "jdbc:postgresql://postgres:5432/robosdb"
+jdbc_url = "jdbc:postgresql://postgres:5432/robos_db"
 db_properties = {
-    "user": "admin",
-    "password": "admin123",
+    "user": "robos_user",
+    "password": "robos_pass",
     "driver": "org.postgresql.Driver"
 }
+
 
 riesgo.write.jdbc(url=jdbc_url, table="riesgo", mode="overwrite", properties=db_properties)
 modalidades.write.jdbc(url=jdbc_url, table="modalidades", mode="overwrite", properties=db_properties)

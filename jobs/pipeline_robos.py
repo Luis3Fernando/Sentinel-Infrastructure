@@ -11,14 +11,13 @@ except:
 
 spark = SparkSession.builder \
     .appName("RobosPeru") \
-    .config("spark.jars", "/home/jovyan/libs/postgresql-42.6.0.jar") \
+    .config("spark.jars", "/libs/postgresql-42.6.0.jar") \
     .getOrCreate()
-
 
 # -------------------------
 # Lectura de datos
 # -------------------------
-df = spark.read.csv("/data/robos.csv", header=True, inferSchema=True)
+df = spark.read.csv("./data/robos.csv", header=True, inferSchema=True)
 
 # -------------------------
 # Consulta de riesgo por distrito

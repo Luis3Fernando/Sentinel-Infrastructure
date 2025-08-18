@@ -16,6 +16,7 @@ services:
     volumes:
       - ../data:/data
       - ../jobs:/jobs
+      - ./libs:/libs
 
   spark-worker-1:
     image: bitnami/spark:3
@@ -57,6 +58,7 @@ services:
     volumes:
       - ../data:/home/jovyan/data
       - ../jobs:/home/jovyan/jobs
+      - ./libs:/home/jovyan/libs
     depends_on:
       - spark-master
 

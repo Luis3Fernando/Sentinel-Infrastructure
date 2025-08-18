@@ -1,0 +1,3 @@
+#Sentinel 
+
+spark-submit --jars /libs/postgresql-42.6.0.jar /jobs/pipeline_robos.py

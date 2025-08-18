@@ -41,3 +41,18 @@ services:
       - spark-master
     volumes:
       - ../data:/data
+
+  jupyter:
+    image: jupyter/pyspark-notebook:latest
+    container_name: jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - PYSPARK_DRIVER_PYTHON=jupyter
+      - PYSPARK_DRIVER_PYTHON_OPTS=notebook
+      - PYSPARK_PYTHON=python3
+    volumes:
+      - ../data:/home/jovyan/data
+      - ../jobs:/home/jovyan/jobs
+    depends_on:
+      - spark-master

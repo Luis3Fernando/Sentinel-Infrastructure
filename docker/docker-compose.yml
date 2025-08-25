@@ -70,7 +70,7 @@ services:
       POSTGRES_PASSWORD: robos_pass
       POSTGRES_DB: robos_db
     ports:
-      - "55432:5432"
+      - "15432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

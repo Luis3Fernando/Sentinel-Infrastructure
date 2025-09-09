@@ -17,6 +17,6 @@ This project defines a complete infrastructure for running an Apache Spark clust
 
 The configuration is intended for development and test environments, allowing to run distributed jobs and store results in a relational database.
 
-bash```
+```bash
 spark-submit --jars /libs/postgresql-42.6.0.jar /jobs/pipeline_robos.py
 ```

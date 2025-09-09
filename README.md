@@ -5,7 +5,6 @@
 
 This project defines an infrastructure with Docker Compose to build an Apache Spark cluster with a Spark Master, two Spark Workers, a Jupyter Notebook environment to run PySpark jobs and a PostgreSQL database to store results. Everything is configured with shared volumes, which allows to easily work with datasets, scripts and external libraries.
 
-spark-submit --jars /libs/postgresql-42.6.0.jar /jobs/pipeline_robos.py
 
 📌 Apache Spark Cluster with Docker Compose
 
@@ -17,3 +16,7 @@ This project defines a complete infrastructure for running an Apache Spark clust
 - PostgreSQL as database
 
 The configuration is intended for development and test environments, allowing to run distributed jobs and store results in a relational database.
+
+bash```
+spark-submit --jars /libs/postgresql-42.6.0.jar /jobs/pipeline_robos.py
+```
